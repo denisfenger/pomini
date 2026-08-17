@@ -2,41 +2,273 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- KEPT OUT OF SEARCH ON PURPOSE, until the app is released. See privacy/index.html. -->
+<!-- KEPT OUT OF SEARCH ON PURPOSE, until the app is released. Remove this tag on all
+     five pages to let the site be indexed again.
+     NOTE: a robots.txt in this repo would do NOTHING. Crawlers only read robots.txt at
+     the DOMAIN root (denisfenger.github.io/robots.txt), which belongs to the user site
+     repo, not to /pomini/. For a project page the per-page meta tag is the mechanism
+     that works. This does NOT make the pages unreachable: anyone with the URL still
+     opens them, which is required. The shipped app links privacy, support and impressum,
+     and App Review has to be able to fetch them. -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pomini</title>
-<meta name="description" content="Pomini: a beautiful focus and pomodoro timer for iPhone that just works.">
+<title>Pomini: Focus &amp; Pomodoro Timer</title>
+<meta name="description" content="Pomini is a focus and pomodoro timer for iPhone. Sessions end exactly on time even with the app closed, the countdown lives on your lock screen, and everything stays on your phone.">
+<meta property="og:title" content="Pomini: Focus &amp; Pomodoro Timer">
+<meta property="og:description" content="A pomodoro timer that just works. On-the-clock session endings, lock screen countdowns, quiet statistics, no account.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://denisfenger.github.io/pomini/">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="pagehead">
-  <div class="wrap">
-    <a class="brandrow" href="./">
-      <img src="icon.svg" alt="" width="40" height="40">
-      <span class="n">Pomini</span>
-    </a>
-    <p class="eyebrow">Focus &amp; pomodoro timer</p>
-    <h1>A beautiful timer that just works.</h1>
-    <p class="stamp">Pomini for iPhone is in preparation. These pages carry the app's legal information.</p>
-  </div>
-</header>
+<!-- ══ 01 HERO ══════════════════════════════════════════════════════════════ -->
+<section class="band dark">
+  <div class="wrap split">
+    <div>
+      <div class="brandrow" style="margin-bottom:2.6rem;">
+        <img src="icon.svg" alt="" width="60" height="60" style="width:60px;height:60px;">
+        <div class="n" style="color:#b8a49b;font-size:2rem;">Pomini</div>
+      </div>
 
-<main class="doc">
-  <div class="wrap">
-    <div class="linklist">
-      <a href="privacy/">Privacy Policy</a>
-      <a href="terms/">Terms of Service</a>
-      <a href="support/">Support</a>
-      <a href="impressum/">Legal Notice / Impressum</a>
+      <h1>A pomodoro timer<br>that just works.</h1>
+
+      <div class="arcrule" aria-hidden="true">
+        <svg viewBox="0 0 396 14" fill="none" preserveAspectRatio="none">
+          <path class="track" d="M4 7h388" stroke-width="4" stroke-linecap="round"/>
+          <path class="fill" d="M4 7h323" stroke-width="4" stroke-linecap="round"/>
+          <path class="tick" d="M360 2v10" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <p class="lead">Pomini keeps the promise most timer apps break: a session ends exactly on time, whether the app is open, in your pocket or closed. No account, no streaks to lose, no guilt. Just a quiet, beautiful timer.</p>
+
+      <div class="cta">
+        <!-- Swap this for Apple's official "Download on the App Store" badge once the
+             app is live. Apple requires their own artwork, so do not redraw the badge. -->
+        <span class="btn primary">Coming to the App Store</span>
+        <a class="btn quiet" href="#how">See how it works</a>
+      </div>
+      <p class="note">For iPhone. No account, no ads. What is free today stays free.</p>
+    </div>
+
+    <div>
+      <div class="phone">
+        <div class="screen" style="--p-bg:#1A1412;--p-surface:#241C19;--p-bd:#2F2521;--p-ink:#F5EDE8;--p-muted:#B8A49B;--p-faint:#6D5C54;--p-dot:#3A2E29;--p-acc:#E85A42;--p-glow:rgba(232,90,66,.18);--p-halo:rgba(232,90,66,.35);--p-on:#1A1412;">
+          <div class="statusbar"><span>9:41</span><div class="notch"></div><div class="sigbars"><i></i><i></i><i></i><i></i></div></div>
+          <div class="timerscreen">
+            <div class="sesslabel">Focus</div>
+            <div class="countwrap"><div class="count" data-tick>24:58</div></div>
+            <div class="cycledots"><i class="on"></i><i></i><i></i><i></i></div>
+            <div class="taskchip">Thesis, chapter two</div>
+            <div class="ctrls">
+              <div class="ctrl"><svg viewBox="0 0 24 24" fill="none"><path d="M4 10a8 8 0 1 1 2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 5v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="ctrl primary"><svg viewBox="0 0 24 24"><rect x="7" y="5" width="3.6" height="14" rx="1.8" fill="currentColor"/><rect x="13.4" y="5" width="3.6" height="14" rx="1.8" fill="currentColor"/></svg></div>
+              <div class="ctrl"><svg viewBox="0 0 24 24"><path d="M6 5.5v13l9-6.5z" fill="currentColor"/><rect x="16.5" y="5" width="2.6" height="14" rx="1.3" fill="currentColor"/></svg></div>
+            </div>
+            <div class="tabbar">
+              <svg viewBox="0 0 24 24"><rect x="4" y="12" width="3.4" height="8" rx="1.7" fill="currentColor"/><rect x="10.3" y="7" width="3.4" height="13" rx="1.7" fill="currentColor"/><rect x="16.6" y="10" width="3.4" height="10" rx="1.7" fill="currentColor"/></svg>
+              <svg class="active" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="41.9 8.4" transform="rotate(-60 12 12)"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="2"/><path d="M5.5 19c1-3.4 3.5-5 6.5-5s5.5 1.6 6.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</main>
+</section>
 
-<footer>
+<!-- ══ 02 RELIABILITY ═══════════════════════════════════════════════════════ -->
+<section class="band dark flip" id="how">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Reliability</p>
+      <h2>It never misses<br>the end.</h2>
+      <div class="arcrule" aria-hidden="true">
+        <svg viewBox="0 0 396 14" fill="none" preserveAspectRatio="none">
+          <path class="track" d="M4 7h388" stroke-width="4" stroke-linecap="round"/>
+          <path class="fill" d="M4 7h323" stroke-width="4" stroke-linecap="round"/>
+          <path class="tick" d="M360 2v10" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="lead">The moment you press start, Pomini computes every boundary ahead of you and hands the alerts to iOS itself. Lock the phone or leave the app entirely. The chime lands on the clock, because nothing needs to be awake to fire it. Change your plan and the whole chain is rebuilt on the spot.</p>
+    </div>
+    <div>
+      <div class="panel">
+        <div class="notif">
+          <img src="icon.svg" alt="">
+          <div>
+            <div class="t">Pomini</div>
+            <div class="b">Focus is done. Time for a short break.</div>
+          </div>
+          <div class="when">now</div>
+        </div>
+        <div class="schedule">
+          <div class="schedrow now"><span class="dot"></span>Focus<b>until 2:25 PM</b></div>
+          <div class="schedrow"><span class="dot"></span>Short break<b>until 2:30 PM</b></div>
+          <div class="schedrow"><span class="dot"></span>Focus<b>until 2:55 PM</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 LOCK SCREEN AND ISLAND ════════════════════════════════════════════ -->
+<section class="band light">
+  <div class="wrap split rev">
+    <div>
+      <div class="island">
+        <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M69 17.1A38 38 0 1 1 31 17.1" stroke="#E85A42" stroke-width="12.2" stroke-linecap="round"/><path d="M50 12v17" stroke="#2E7D53" stroke-width="12.2" stroke-linecap="round"/></svg>
+        <b data-tick>24:58</b>
+      </div>
+      <div class="lacard">
+        <div class="t">Focus until 2:25 PM</div>
+        <div class="row">
+          <div class="big" data-tick>24:58</div>
+          <div class="cycledots"><i class="on" style="background:#E85A42;"></i><i style="background:#3A2E29;"></i><i style="background:#3A2E29;"></i><i style="background:#3A2E29;"></i></div>
+        </div>
+        <div class="bar"><i></i></div>
+      </div>
+      <div class="acc-widgets">
+        <div class="accring">
+          <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M69 17.1A38 38 0 1 1 31 17.1" stroke="#F5EDE8" stroke-width="12.2" stroke-linecap="round"/><path d="M50 12v17" stroke="#F5EDE8" stroke-width="12.2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="accinline">
+          <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M69 17.1A38 38 0 1 1 31 17.1" stroke="#F5EDE8" stroke-width="12.2" stroke-linecap="round"/><path d="M50 12v17" stroke="#F5EDE8" stroke-width="12.2" stroke-linecap="round"/></svg>
+          Focus <span data-tick>24:58</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow">Outside the app</p>
+      <h2>The countdown<br>follows you out.</h2>
+      <div class="arcrule" aria-hidden="true">
+        <svg viewBox="0 0 396 14" fill="none" preserveAspectRatio="none">
+          <path class="track" d="M4 7h388" stroke-width="4" stroke-linecap="round"/>
+          <path class="fill" d="M4 7h323" stroke-width="4" stroke-linecap="round"/>
+          <path class="tick" d="M360 2v10" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="lead">A Live Activity keeps the timer on your lock screen and in the Dynamic Island, counting down natively to the second. Widgets for the home screen and the lock screen show where you are at a glance, and when a phase ends they move on with you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 04 THE METHOD ════════════════════════════════════════════════════════ -->
+<section class="band light flip">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">The method</p>
+      <h2>Focus, break, repeat.<br>Your lengths.</h2>
+      <div class="arcrule" aria-hidden="true">
+        <svg viewBox="0 0 396 14" fill="none" preserveAspectRatio="none">
+          <path class="track" d="M4 7h388" stroke-width="4" stroke-linecap="round"/>
+          <path class="fill" d="M4 7h323" stroke-width="4" stroke-linecap="round"/>
+          <path class="tick" d="M360 2v10" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="lead">The classic 25 and 5 out of the box, presets up to 90 minutes when the work runs deep, and a long break after every fourth session. Let phases start themselves or keep every boundary in your hands. Even skipping ahead respects that choice.</p>
+    </div>
+    <div>
+      <div class="panel">
+        <p class="chiplabel">Focus</p>
+        <div class="chips">
+          <span class="chip">15</span><span class="chip">20</span><span class="chip on">25</span><span class="chip">30</span><span class="chip">45</span><span class="chip">50</span><span class="chip">60</span><span class="chip">90</span>
+        </div>
+        <p class="chiplabel">Short break</p>
+        <div class="chips"><span class="chip on">5</span><span class="chip">10</span></div>
+        <p class="chiplabel">Long break</p>
+        <div class="chips"><span class="chip on">15</span><span class="chip">20</span><span class="chip">30</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 05 STATISTICS ════════════════════════════════════════════════════════ -->
+<section class="band dark">
+  <div class="wrap split rev">
+    <div>
+      <div class="panel statpanel">
+        <div class="headline">6 h 40 m</div>
+        <div class="compare">12 percent more than last week</div>
+        <div class="bars">
+          <i style="height:38%"></i><i style="height:56%"></i><i style="height:22%"></i><i style="height:68%"></i><i style="height:48%"></i><i style="height:30%"></i><i class="stub"></i>
+        </div>
+        <div class="barlabels"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow">Statistics</p>
+      <h2>See where<br>the time went.</h2>
+      <div class="arcrule" aria-hidden="true">
+        <svg viewBox="0 0 396 14" fill="none" preserveAspectRatio="none">
+          <path class="track" d="M4 7h388" stroke-width="4" stroke-linecap="round"/>
+          <path class="fill" d="M4 7h323" stroke-width="4" stroke-linecap="round"/>
+          <path class="tick" d="M360 2v10" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="lead">Day, week, month or year. Focus time or sessions counted. A quiet line compares the period to the one before, and every session sits in a list you can open, pauses and all. Information, never judgment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 06 MAKE IT YOURS ═════════════════════════════════════════════════════ -->
+<section class="band dark flip">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Make it yours</p>
+      <h2>One accent at a time.<br>Yours.</h2>
+      <p class="lead">The session colour drives the whole screen: the label, the glow, the button, the dots. Swap it for any of the built-in swatches or pick your own from the system colour wheel. Tap one to try it.</p>
+
+      <div class="swatches" id="swatches"></div>
+      <p class="swname" id="swname">Tomato <span>&middot; the focus default</span></p>
+    </div>
+    <div>
+      <div class="phone tilt">
+        <div class="screen" id="yoursScreen" style="--p-bg:#1A1412;--p-surface:#241C19;--p-bd:#2F2521;--p-ink:#F5EDE8;--p-muted:#B8A49B;--p-faint:#6D5C54;--p-dot:#3A2E29;--p-acc:#E85A42;--p-glow:rgba(232,90,66,.18);--p-halo:rgba(232,90,66,.35);--p-on:#1A1412;">
+          <div class="statusbar"><span>9:41</span><div class="notch"></div><div class="sigbars"><i></i><i></i><i></i><i></i></div></div>
+          <div class="timerscreen">
+            <div class="sesslabel">Focus</div>
+            <div class="countwrap"><div class="count" data-tick>24:58</div></div>
+            <div class="cycledots"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+            <div class="taskchip">Deep work</div>
+            <div class="ctrls">
+              <div class="ctrl"><svg viewBox="0 0 24 24" fill="none"><path d="M4 10a8 8 0 1 1 2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 5v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="ctrl primary"><svg viewBox="0 0 24 24"><rect x="7" y="5" width="3.6" height="14" rx="1.8" fill="currentColor"/><rect x="13.4" y="5" width="3.6" height="14" rx="1.8" fill="currentColor"/></svg></div>
+              <div class="ctrl"><svg viewBox="0 0 24 24"><path d="M6 5.5v13l9-6.5z" fill="currentColor"/><rect x="16.5" y="5" width="2.6" height="14" rx="1.3" fill="currentColor"/></svg></div>
+            </div>
+            <div class="tabbar">
+              <svg viewBox="0 0 24 24"><rect x="4" y="12" width="3.4" height="8" rx="1.7" fill="currentColor"/><rect x="10.3" y="7" width="3.4" height="13" rx="1.7" fill="currentColor"/><rect x="16.6" y="10" width="3.4" height="10" rx="1.7" fill="currentColor"/></svg>
+              <svg class="active" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="41.9 8.4" transform="rotate(-60 12 12)"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="2"/><path d="M5.5 19c1-3.4 3.5-5 6.5-5s5.5 1.6 6.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 07 PRIVACY ═══════════════════════════════════════════════════════════ -->
+<section class="band light">
   <div class="wrap">
+    <p class="eyebrow">Private by design</p>
+    <h2>No account.<br>No server of ours.</h2>
+    <p class="lead">Your sessions live on your phone and are never transmitted. There is no sign-up, no analytics and no tracking. A purchase is handled by Apple and RevenueCat with an anonymous ID and your store receipt, and that is the whole list.</p>
+
+    <div class="cards">
+      <div class="panel"><h3>Stays on the device</h3><p>Timer, tasks, tags and history are stored locally and nowhere else.</p></div>
+      <div class="panel"><h3>Local notifications</h3><p>Session boundaries are scheduled on the device. No push service, no device token, nothing sent anywhere.</p></div>
+      <div class="panel"><h3>App blocker</h3><p>While a focus session runs, the apps you chose stay closed. Enforced by iOS on the phone, never watched by us.</p></div>
+      <div class="panel"><h3>Health and calendar</h3><p>Finished sessions can land in Apple Health and your calendar. Both are off until you ask, and both stay on the phone.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap wide">
     <div class="brandrow">
       <img src="icon.svg" alt="">
       <span class="n">Pomini</span>
@@ -52,5 +284,90 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  'use strict';
+
+  /* ── One shared countdown ──────────────────────────────────────────────────
+     Every surface on the page (phones, island, Live Activity, widgets) shows
+     the SAME remaining time, ticking once a second, because that is the
+     product's whole claim. Wraps back to 25:00 before it could reach zero. */
+  var remaining = 24 * 60 + 58;
+  var ticks = document.querySelectorAll('[data-tick]');
+  function render() {
+    var m = Math.floor(remaining / 60);
+    var s = remaining % 60;
+    var text = m + ':' + (s < 10 ? '0' : '') + s;
+    for (var i = 0; i < ticks.length; i++) ticks[i].textContent = text;
+  }
+  render();
+  setInterval(function () {
+    remaining = remaining > 60 ? remaining - 1 : 25 * 60;
+    render();
+  }, 1000);
+
+  /* ── Accent swatches ───────────────────────────────────────────────────────
+     Dark-variant values from STYLE_GUIDE.md. The custom tile draws a fresh
+     colour on every tap, which is honest: the app's picker offers everything. */
+  var SWATCHES = [
+    ['tomato', 'Tomato', '#E85A42', 'the focus default'],
+    ['green',  'Green',  '#58C289', 'the short break'],
+    ['amber',  'Amber',  '#E9A23B', 'the long break'],
+    ['rose',   'Rose',   '#E87098', ''],
+    ['violet', 'Violet', '#B995E8', ''],
+    ['blue',   'Blue',   '#6FAAE8', ''],
+    ['teal',   'Teal',   '#45C2B0', ''],
+    ['slate',  'Slate',  '#A8B2C0', '']
+  ];
+  var host = document.getElementById('swatches');
+  var screen = document.getElementById('yoursScreen');
+  var nameEl = document.getElementById('swname');
+  if (!host || !screen) return;
+
+  function hexToRgba(hex, a) {
+    var n = parseInt(hex.slice(1), 16);
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+  function press(key) {
+    Array.prototype.forEach.call(host.querySelectorAll('.sw'), function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.key === key));
+    });
+  }
+  function apply(acc, glow, halo, name, sub, key) {
+    screen.style.setProperty('--p-acc', acc);
+    screen.style.setProperty('--p-glow', glow);
+    screen.style.setProperty('--p-halo', halo);
+    nameEl.innerHTML = name + (sub ? ' <span>&middot; ' + sub + '</span>' : '');
+    press(key);
+  }
+
+  SWATCHES.forEach(function (s) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'sw';
+    b.dataset.key = s[0];
+    b.style.background = s[2];
+    b.setAttribute('aria-pressed', String(s[0] === 'tomato'));
+    b.setAttribute('aria-label', s[1] + ' accent');
+    b.addEventListener('click', function () {
+      apply(s[2], hexToRgba(s[2], .18), hexToRgba(s[2], .35), s[1], s[3], s[0]);
+    });
+    host.appendChild(b);
+  });
+
+  var custom = document.createElement('button');
+  custom.type = 'button';
+  custom.className = 'sw custom';
+  custom.dataset.key = 'custom';
+  custom.setAttribute('aria-pressed', 'false');
+  custom.setAttribute('aria-label', 'Your own colour, a new one on every tap');
+  custom.addEventListener('click', function () {
+    var h = Math.floor(Math.random() * 360);
+    var acc = 'hsl(' + h + ', 65%, 64%)';
+    apply(acc, 'hsla(' + h + ', 65%, 64%, .18)', 'hsla(' + h + ', 65%, 64%, .35)', 'Yours', 'drawn from the full wheel', 'custom');
+  });
+  host.appendChild(custom);
+})();
+</script>
 </body>
 </html>

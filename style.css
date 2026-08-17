@@ -1,15 +1,21 @@
 /* ────────────────────────────────────────────────────────────────────────────
-   Pomini legal pages (privacy, terms, support, impressum).
+   Pomini site: landing page + legal pages (privacy, terms, support,
+   impressum).
 
-   The visual system is the app's own Ember palette in its light derivation
-   (STYLE_GUIDE.md): warm cream ground, warm near-black ink, the tomato as the
-   one accent. Legal pages are read, not scanned, so everything is calibrated
-   for measure and quiet.
+   The visual system is the app's own Ember palette (STYLE_GUIDE.md): warm
+   near-black and warm cream grounds, the tomato as the one accent, system
+   font everywhere (the brand IS the system font). Dark leads marketing, so
+   the landing opens dark; legal pages stay on the light derivation because
+   they are read, not scanned.
 
-   NO EXTERNAL REQUESTS. Fonts are the system stack (the brand IS the system
-   font). Hotlinking fonts.googleapis.com sends every visitor's IP to Google,
-   which a German company serving an Impressum should not do
-   (LG Muenchen I, 3 O 17493/20).
+   The phone screens on the landing are drawn in HTML using the app's real
+   token values from STYLE_GUIDE.md, so nothing here can go stale against a
+   screenshot. CONTENT RULE (Denis): whenever app features change, this page
+   changes in the same round.
+
+   NO EXTERNAL REQUESTS. Fonts are the system stack. Hotlinking
+   fonts.googleapis.com sends every visitor's IP to Google, which a German
+   company serving an Impressum should not do (LG Muenchen I, 3 O 17493/20).
    ──────────────────────────────────────────────────────────────────────── */
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -17,6 +23,7 @@
 :root {
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --wrap: 780px;
+  --wrapwide: 1120px;
   --pad: clamp(1.25rem, 4vw, 3rem);
 
   /* Ember light tokens (STYLE_GUIDE.md) */
@@ -28,9 +35,18 @@
   --faint: #b5a69c;
   --tomato: #d9482f;
   --stem: #2e7d53;
+
+  /* Ember dark tokens, for the landing's dark bands */
+  --d-bg: #1a1412;
+  --d-surface: #241c19;
+  --d-border: #2f2521;
+  --d-ink: #f5ede8;
+  --d-muted: #b8a49b;
+  --d-faint: #6d5c54;
+  --d-tomato: #e85a42;
 }
 
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: var(--sans);
@@ -95,23 +111,10 @@ h1 {
 .contactcard a { color: #e8a08f; }
 .contactcard a:hover { color: #fff; }
 
-/* Index page: the four links as quiet cards. */
-.linklist { display: grid; gap: .8rem; margin-top: 2.5rem; }
-.linklist a {
-  display: flex; align-items: center; justify-content: space-between;
-  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
-  padding: 1.1rem 1.35rem; text-decoration: none; font-weight: 700;
-  letter-spacing: -.01em; color: var(--ink);
-}
-.linklist a::after {
-  content: ""; width: 9px; height: 9px;
-  border-right: 2px solid var(--faint); border-bottom: 2px solid var(--faint);
-  transform: rotate(-45deg);
-}
-.linklist a:hover { border-color: var(--faint); }
-
-footer { background: #1a1412; color: #b8a49b; padding: clamp(3rem, 7vw, 5rem) var(--pad); margin-top: clamp(3rem, 7vw, 5rem); }
+footer { background: #14100e; color: #b8a49b; padding: clamp(3rem, 7vw, 5rem) var(--pad); }
+.doc + footer, main + footer { margin-top: clamp(3rem, 7vw, 5rem); }
 footer .wrap { max-width: var(--wrap); margin: 0 auto; }
+footer .wrap.wide { max-width: var(--wrapwide); }
 footer .brandrow .n { color: #f5ede8; }
 footer nav { display: flex; flex-wrap: wrap; gap: 1.6rem; margin: 1.4rem 0 2rem; }
 footer a { color: #e0d3ca; text-decoration: none; border-bottom: 1px solid rgba(224,211,202,.3); padding-bottom: 2px; }
@@ -120,4 +123,299 @@ footer .fine { font-size: .88rem; opacity: .75; margin: 0; }
 
 :where(a, button):focus-visible {
   outline: 2px solid var(--tomato); outline-offset: 3px; border-radius: 6px;
+}
+
+/* ────────────────────────────────────────────────────────────────────────────
+   LANDING PAGE. Everything below is scoped to .band (plus the shared footer),
+   so the legal pages above stay untouched.
+   ──────────────────────────────────────────────────────────────────────── */
+
+.band { position: relative; overflow: hidden; padding: clamp(4.5rem, 11vw, 8.5rem) var(--pad); }
+.band > .wrap { position: relative; max-width: var(--wrapwide); margin: 0 auto; }
+
+.band.light {
+  background: radial-gradient(125% 78% at 14% -12%, #fdfaf7 0%, #f7f1ec 45%, #efe4da 100%);
+  color: var(--ink);
+}
+.band.light::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 120%;
+  background: radial-gradient(46% 34% at 88% 20%, rgba(217,72,47,.07), rgba(217,72,47,0) 72%);
+  pointer-events: none;
+}
+.band.light.flip::before { background: radial-gradient(46% 34% at 12% 20%, rgba(217,72,47,.06), rgba(217,72,47,0) 72%); }
+
+.band.dark {
+  background: radial-gradient(125% 76% at 12% -12%, #241c19 0%, #1a1412 42%, #120d0b 100%);
+  color: var(--d-ink);
+}
+.band.dark::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 120%;
+  background: radial-gradient(52% 34% at 84% 22%, rgba(232,90,66,.12), rgba(232,90,66,0) 72%);
+  pointer-events: none;
+}
+.band.dark.flip::before { background: radial-gradient(50% 32% at 16% 22%, rgba(232,90,66,.10), rgba(232,90,66,0) 72%); }
+
+.band .eyebrow { color: var(--faint); margin-bottom: 1.1rem; }
+.band.dark .eyebrow { color: var(--d-faint); }
+
+.band h1, .band h2 {
+  font-weight: 800; letter-spacing: -.04em; line-height: 1.02;
+  margin: 0; text-wrap: balance;
+}
+.band h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); }
+.band h2 { font-size: clamp(2.1rem, 5.4vw, 3.4rem); }
+.band h3 { font-size: 1.15rem; font-weight: 800; letter-spacing: -.02em; margin: 0 0 .35rem; }
+
+.band .lead {
+  margin: 1.6rem 0 0; max-width: 46ch;
+  font-size: clamp(1.05rem, 2.1vw, 1.35rem); line-height: 1.45; font-weight: 400;
+  color: var(--muted); text-wrap: pretty;
+}
+.band.dark .lead { color: var(--d-muted); }
+
+/* The brand rule: the Ring unrolled. A round-cap track with the 5/6 arc in
+   tomato and the stem's green index tick standing in the gap. */
+.arcrule { margin: 1.9rem 0 0; height: 14px; width: min(320px, 70%); }
+.arcrule svg { width: 100%; height: 100%; }
+.arcrule .track { stroke: var(--border); }
+.dark .arcrule .track { stroke: var(--d-border); }
+.arcrule .fill { stroke: var(--tomato); }
+.dark .arcrule .fill { stroke: var(--d-tomato); }
+.arcrule .tick { stroke: var(--stem); }
+
+.split {
+  display: grid; gap: clamp(2.5rem, 6vw, 5rem);
+  grid-template-columns: 1fr; align-items: center;
+}
+@media (min-width: 900px) {
+  .split { grid-template-columns: 1.05fr .95fr; }
+  .split.rev > *:first-child { order: 2; }
+}
+
+.cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.4rem; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: .65rem;
+  border-radius: 999px; padding: 1rem 1.75rem;
+  font-weight: 700; font-size: 1.02rem; text-decoration: none;
+  border: 2px solid transparent; cursor: pointer;
+}
+.dark .btn.primary {
+  background: var(--d-tomato); color: #1a1412;
+  box-shadow: 0 0 42px rgba(232,90,66,.35);
+}
+.dark .btn.quiet { border-color: rgba(245,237,232,.22); color: var(--d-ink); }
+.dark .btn.quiet:hover { border-color: rgba(245,237,232,.45); }
+.light .btn.quiet { border-color: rgba(42,31,26,.16); color: var(--ink); }
+.light .btn.quiet:hover { border-color: rgba(42,31,26,.34); }
+.band .note { margin: 1rem 0 0; font-size: .92rem; color: var(--muted); }
+.band.dark .note { color: var(--d-muted); }
+
+.panel {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 24px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow: 0 40px 80px -40px rgba(42,31,26,.25);
+}
+.dark .panel {
+  background: linear-gradient(160deg, rgba(245,237,232,.09), rgba(245,237,232,.03));
+  border-color: rgba(184,164,155,.2);
+  box-shadow: 0 40px 80px -40px rgba(0,0,0,.7);
+}
+
+.cards { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: 3rem; }
+.cards .panel p { margin: 0; font-size: .96rem; color: var(--muted); }
+.dark .cards .panel p { color: var(--d-muted); }
+
+/* ── Phone mockup, drawn with the app's real dark tokens ──────────────────── */
+.phone {
+  width: min(320px, 78vw); margin: 0 auto;
+  border-radius: 46px; padding: 6px;
+  background: linear-gradient(155deg, #4a3d36, #241c19 30%, #0d0a09 64%, #3a2e29);
+  box-shadow: 0 80px 130px -34px rgba(0,0,0,.6), 0 14px 34px rgba(0,0,0,.25);
+}
+.dark .phone { box-shadow: 0 80px 130px -34px rgba(0,0,0,.8); }
+.phone.tilt { transform: rotate(3deg); }
+.screen {
+  position: relative; border-radius: 40px; overflow: hidden;
+  background: var(--p-bg); color: var(--p-ink);
+  padding: 0 18px 14px;
+  font-size: 13px; line-height: 1.35;
+}
+.statusbar {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 42px; padding: 0 2px 0 8px;
+  font-size: 12px; font-weight: 600; letter-spacing: .01em;
+}
+.notch { width: 78px; height: 22px; border-radius: 12px; background: #000; }
+.sigbars { display: flex; align-items: flex-end; gap: 2px; height: 10px; opacity: .9; }
+.sigbars i { width: 3px; border-radius: 1px; background: currentColor; }
+.sigbars i:nth-child(1) { height: 4px; } .sigbars i:nth-child(2) { height: 6px; }
+.sigbars i:nth-child(3) { height: 8px; } .sigbars i:nth-child(4) { height: 10px; }
+
+/* The timer screen. Proportions follow STYLE_GUIDE.md scaled to the mockup:
+   uppercase session label in the accent, the glow behind the countdown, cycle
+   dots, task chip, one filled control between two stroked ones, bare tab bar. */
+.timerscreen { display: flex; flex-direction: column; align-items: center; padding: 26px 0 0; }
+.sesslabel {
+  font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--p-acc);
+}
+.countwrap { position: relative; padding: 10px 30px 6px; }
+.countwrap::before {
+  content: ""; position: absolute; inset: -46px -60px;
+  background: radial-gradient(closest-side, var(--p-glow), transparent 65%);
+  animation: breathe 6s ease-in-out infinite;
+}
+.count {
+  position: relative; font-size: 62px; font-weight: 700; letter-spacing: -.01em;
+  font-variant-numeric: tabular-nums; color: var(--p-ink); line-height: 1.05;
+}
+@keyframes breathe { 0%, 100% { opacity: .8; } 50% { opacity: 1.15; } }
+.cycledots { display: flex; gap: 8px; margin-top: 14px; }
+.cycledots i { width: 8px; height: 8px; border-radius: 50%; background: var(--p-dot); }
+.cycledots i.on { background: var(--p-acc); }
+.taskchip {
+  margin-top: 16px; font-size: 11.5px; font-weight: 500; color: var(--p-muted);
+  background: var(--p-surface); border: 1px solid var(--p-bd);
+  border-radius: 999px; padding: 6px 14px;
+}
+.ctrls { display: flex; align-items: center; gap: 18px; margin: 22px 0 6px; }
+.ctrl {
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1.5px solid var(--p-bd); color: var(--p-muted);
+  display: flex; align-items: center; justify-content: center;
+}
+.ctrl.primary {
+  width: 62px; height: 62px; border: 0;
+  background: var(--p-acc); color: var(--p-on);
+  box-shadow: 0 0 32px var(--p-halo);
+}
+.ctrl svg { width: 18px; height: 18px; }
+.ctrl.primary svg { width: 24px; height: 24px; }
+.tabbar {
+  display: flex; justify-content: space-around; align-items: center;
+  width: 100%; padding: 12px 26px 6px; margin-top: 8px;
+  border-top: 1px solid var(--p-bd);
+  color: var(--p-faint);
+}
+.tabbar svg { width: 20px; height: 20px; }
+.tabbar .active { color: var(--p-acc); }
+
+/* ── The system surfaces: notification, Live Activity, island, widgets ────── */
+.notif {
+  display: flex; gap: .8rem; align-items: flex-start;
+  background: rgba(245,237,232,.14); backdrop-filter: blur(6px);
+  border: 1px solid rgba(245,237,232,.14);
+  border-radius: 18px; padding: .95rem 1.1rem;
+}
+.notif img { width: 34px; height: 34px; border-radius: 8px; flex: none; }
+.notif .t { font-weight: 700; font-size: .95rem; }
+.notif .b { font-size: .92rem; color: var(--d-muted); }
+.notif .when { margin-left: auto; font-size: .8rem; color: var(--d-faint); flex: none; }
+
+.schedule { display: flex; flex-direction: column; gap: .55rem; margin-top: 1rem; }
+.schedrow {
+  display: flex; align-items: center; gap: .75rem;
+  font-size: .95rem; color: var(--d-muted);
+  border: 1px solid var(--d-border); border-radius: 14px; padding: .7rem 1rem;
+  font-variant-numeric: tabular-nums;
+}
+.schedrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--d-faint); flex: none; }
+.schedrow.now { color: var(--d-ink); border-color: rgba(232,90,66,.5); }
+.schedrow.now .dot { background: var(--d-tomato); }
+.schedrow b { font-weight: 600; margin-left: auto; }
+
+.island {
+  display: flex; align-items: center; justify-content: space-between;
+  width: min(250px, 100%); height: 62px; margin: 0 auto;
+  background: #000; color: #f5ede8; border-radius: 999px;
+  padding: 0 20px;
+  box-shadow: 0 30px 60px -24px rgba(0,0,0,.65);
+}
+.island svg { width: 26px; height: 26px; }
+.island b {
+  font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums;
+  letter-spacing: -.01em;
+}
+
+.lacard {
+  background: #201915; color: #f5ede8; border-radius: 20px;
+  padding: 1.1rem 1.25rem; width: min(340px, 100%); margin: 1.1rem auto 0;
+  box-shadow: 0 30px 60px -24px rgba(0,0,0,.55);
+}
+.lacard .t { font-size: .82rem; color: #b8a49b; }
+.lacard .row { display: flex; align-items: baseline; justify-content: space-between; margin-top: .2rem; }
+.lacard .big { font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.lacard .cycledots { margin: 0; align-self: center; }
+.lacard .bar { height: 4px; border-radius: 2px; background: #3a2e29; margin-top: .8rem; overflow: hidden; }
+.lacard .bar i { display: block; height: 100%; width: 42%; border-radius: 2px; background: #e85a42; }
+
+.acc-widgets { display: flex; gap: 1rem; align-items: center; justify-content: center; margin: 1.4rem auto 0; }
+.accring {
+  width: 74px; height: 74px; border-radius: 50%;
+  background: rgba(0,0,0,.5); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 20px 40px -18px rgba(0,0,0,.6);
+}
+.accring svg { width: 46px; height: 46px; }
+.accinline {
+  display: flex; align-items: center; gap: .5rem;
+  background: rgba(0,0,0,.5); backdrop-filter: blur(4px);
+  color: #f5ede8; border-radius: 999px; padding: .55rem 1.05rem;
+  font-size: .95rem; font-weight: 600; font-variant-numeric: tabular-nums;
+  box-shadow: 0 20px 40px -18px rgba(0,0,0,.6);
+}
+.accinline svg { width: 18px; height: 18px; }
+
+/* ── Preset chips and the cycle line ──────────────────────────────────────── */
+.chips { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.6rem; }
+.chip {
+  font-size: .92rem; font-weight: 600; font-variant-numeric: tabular-nums;
+  border-radius: 999px; padding: .5rem 1.05rem;
+  background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+}
+.chip.on { background: var(--tomato); border-color: var(--tomato); color: #fff; }
+.chiplabel {
+  font-size: .64rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--faint); margin: 1.6rem 0 0;
+}
+.chiplabel:first-child { margin-top: 0; }
+
+/* ── Statistics mockup ────────────────────────────────────────────────────── */
+.statpanel .headline {
+  font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -.01em;
+}
+.statpanel .compare { font-size: .85rem; color: var(--d-muted); margin-top: .15rem; }
+.bars { display: flex; align-items: flex-end; justify-content: center; gap: 22px; height: 120px; margin-top: 1.6rem; }
+.bars i { flex: none; width: 22px; border-radius: 11px; background: var(--d-tomato); min-height: 4px; }
+.bars i.stub { background: #3a2e29; height: 4px; }
+.barlabels { display: flex; justify-content: center; gap: 22px; margin-top: .5rem; }
+.barlabels span { flex: none; width: 22px; text-align: center; font-size: .68rem; color: var(--d-faint); }
+@media (max-width: 440px) {
+  .bars, .barlabels { gap: 12px; }
+  .bars i, .barlabels span { width: 18px; }
+}
+
+/* ── Accent swatches ──────────────────────────────────────────────────────── */
+.swatches { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.8rem; }
+.sw {
+  width: 44px; height: 44px; border-radius: 50%; flex: none;
+  border: 2px solid transparent; cursor: pointer; padding: 0;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.sw:hover { transform: translateY(-3px); }
+.sw[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--d-bg), 0 0 0 4px var(--d-ink); }
+.sw.custom {
+  background: conic-gradient(#e87098, #e9a23b, #58c289, #45c2b0, #6faae8, #b995e8, #e87098);
+  position: relative;
+}
+.sw.custom::after {
+  content: ""; position: absolute; inset: 10px; border-radius: 50%; background: var(--d-surface);
+}
+.swname { margin-top: 1rem; font-size: .95rem; font-weight: 700; letter-spacing: -.01em; }
+.swname span { font-weight: 500; color: var(--d-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .countwrap::before { animation: none; }
+  *, *::before, *::after { transition-duration: .001ms !important; }
 }
