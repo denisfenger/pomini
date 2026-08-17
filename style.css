@@ -1,0 +1,123 @@
+/* ────────────────────────────────────────────────────────────────────────────
+   Pomini legal pages (privacy, terms, support, impressum).
+
+   The visual system is the app's own Ember palette in its light derivation
+   (STYLE_GUIDE.md): warm cream ground, warm near-black ink, the tomato as the
+   one accent. Legal pages are read, not scanned, so everything is calibrated
+   for measure and quiet.
+
+   NO EXTERNAL REQUESTS. Fonts are the system stack (the brand IS the system
+   font). Hotlinking fonts.googleapis.com sends every visitor's IP to Google,
+   which a German company serving an Impressum should not do
+   (LG Muenchen I, 3 O 17493/20).
+   ──────────────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --wrap: 780px;
+  --pad: clamp(1.25rem, 4vw, 3rem);
+
+  /* Ember light tokens (STYLE_GUIDE.md) */
+  --bg: #f7f1ec;
+  --surface: #fdfaf7;
+  --border: #eadfd7;
+  --ink: #2a1f1a;
+  --muted: #8a776d;
+  --faint: #b5a69c;
+  --tomato: #d9482f;
+  --stem: #2e7d53;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+
+.pagehead { padding: clamp(3rem, 8vw, 5.5rem) var(--pad) clamp(2rem, 5vw, 3rem); }
+.pagehead .wrap { max-width: var(--wrap); margin: 0 auto; }
+
+a.brandrow { text-decoration: none; color: inherit; }
+.brandrow { display: flex; align-items: center; gap: .8rem; margin-bottom: 2rem; }
+.brandrow img { width: 40px; height: 40px; }
+.brandrow .n { font-weight: 300; font-size: 1.5rem; letter-spacing: .02em; color: var(--ink); }
+
+.eyebrow {
+  font-size: .72rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--faint); margin: 0 0 1rem;
+}
+h1 {
+  font-weight: 800; letter-spacing: -.03em; line-height: 1.05; margin: 0;
+  font-size: clamp(1.9rem, 5vw, 2.9rem); text-wrap: balance;
+}
+.stamp { margin: 1.1rem 0 0; color: var(--muted); font-size: .98rem; }
+
+.doc { padding: 0 var(--pad) clamp(4rem, 9vw, 6rem); }
+.doc .wrap { max-width: var(--wrap); margin: 0 auto; }
+
+.prose { font-size: 1.05rem; line-height: 1.72; color: #4a3d35; }
+.prose > *:first-child { margin-top: 0; }
+.prose h2 {
+  font-size: clamp(1.15rem, 2.6vw, 1.4rem); font-weight: 800; letter-spacing: -.02em;
+  line-height: 1.25; color: var(--ink); margin: 2.6rem 0 .7rem;
+}
+.prose h2:first-child { margin-top: 0; }
+.prose p { margin: 0 0 1.1rem; max-width: 68ch; }
+.prose ul { margin: 0 0 1.1rem; padding-left: 0; list-style: none; max-width: 68ch; }
+.prose li { position: relative; padding-left: 1.5rem; margin: .6rem 0; }
+.prose li::before {
+  content: ""; position: absolute; left: .15rem; top: .72em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--faint);
+}
+.prose strong { font-weight: 700; color: var(--ink); }
+.prose a { color: var(--tomato); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.prose a:hover { color: #a8341f; }
+
+.callout {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+  padding: clamp(1.25rem, 3vw, 1.75rem); margin: 0 0 2.5rem;
+}
+.callout p { margin: 0; max-width: none; }
+
+.contactcard {
+  background: #1a1412; color: #f5ede8; border-radius: 16px;
+  padding: clamp(1.25rem, 3vw, 1.75rem); margin: 0 0 2.5rem;
+}
+.contactcard p { margin: 0; max-width: none; }
+.contactcard a { color: #e8a08f; }
+.contactcard a:hover { color: #fff; }
+
+/* Index page: the four links as quiet cards. */
+.linklist { display: grid; gap: .8rem; margin-top: 2.5rem; }
+.linklist a {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+  padding: 1.1rem 1.35rem; text-decoration: none; font-weight: 700;
+  letter-spacing: -.01em; color: var(--ink);
+}
+.linklist a::after {
+  content: ""; width: 9px; height: 9px;
+  border-right: 2px solid var(--faint); border-bottom: 2px solid var(--faint);
+  transform: rotate(-45deg);
+}
+.linklist a:hover { border-color: var(--faint); }
+
+footer { background: #1a1412; color: #b8a49b; padding: clamp(3rem, 7vw, 5rem) var(--pad); margin-top: clamp(3rem, 7vw, 5rem); }
+footer .wrap { max-width: var(--wrap); margin: 0 auto; }
+footer .brandrow .n { color: #f5ede8; }
+footer nav { display: flex; flex-wrap: wrap; gap: 1.6rem; margin: 1.4rem 0 2rem; }
+footer a { color: #e0d3ca; text-decoration: none; border-bottom: 1px solid rgba(224,211,202,.3); padding-bottom: 2px; }
+footer a:hover { color: #fff; border-bottom-color: #fff; }
+footer .fine { font-size: .88rem; opacity: .75; margin: 0; }
+
+:where(a, button):focus-visible {
+  outline: 2px solid var(--tomato); outline-offset: 3px; border-radius: 6px;
+}
