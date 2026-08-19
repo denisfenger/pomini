@@ -26,7 +26,7 @@
     </a>
     <p class="eyebrow">Legal</p>
     <h1>Privacy Policy</h1>
-    <p class="stamp">Last updated: 18 August 2026</p>
+    <p class="stamp">Last updated: 19 August 2026</p>
   </div>
 </header>
 
@@ -44,14 +44,14 @@
       <p>Everything Pomini does with your focus work stays local:</p>
       <ul>
         <li>Sessions, statistics, tasks, tags and all settings are stored only on your device.</li>
-        <li>Session alarms are local notifications, scheduled on your device; no server is involved in them. The countdown card on your lock screen is the one exception, described in the next section.</li>
+        <li>Session alarms are local notifications, scheduled on your device, whenever notifications are allowed. The countdown card on your lock screen, which also carries the alarm sound when notifications are off, is the one exception, described in the next section.</li>
         <li>If you use app blocking, your selection of allowed apps is held as opaque Screen Time tokens provided by iOS. These tokens never leave your device, and by Apple's design we could not read which apps they refer to even on the device itself.</li>
       </ul>
       <p>Beyond the relay described in the next section, we operate no server for Pomini, and the app sends us no usage data, no crash reports and no identifiers.</p>
 
       <h2>Live Activity updates</h2>
-      <p>The countdown card on your lock screen is a Live Activity. While the app is closed, iOS only changes what the card shows if a server asks Apple to push the change. To make the card move to the next phase on time, the app sends three things to a small relay we operate on Cloudflare Workers when a session starts: the push token Apple issues for that one card, the planned boundary times of the session, and the prepared card contents for each boundary (the card's titles and, if you picked a task, that task's name). The relay holds these, hands each update to Apple at its moment, and does nothing else with them.</p>
-      <p>The relay deletes this data when the session chain ends, and whenever you pause, reset or skip, because the app then withdraws or replaces the schedule. It receives no account, no usage data and no identifier beyond that rotating push token, which Apple scopes to the single card and retires with it. Session alarms do not depend on the relay; they remain local notifications on your device either way. The legal basis is performance of contract (Art. 6(1)(b) GDPR): running the timer you started.</p>
+      <p>The countdown card on your lock screen is a Live Activity. While the app is closed, iOS only changes what the card shows if a server asks Apple to push the change. To make the card move to the next phase on time, the app sends three things to a small relay we operate on Cloudflare Workers when a session starts: the push token Apple issues for that one card, the planned boundary times of the session, and the prepared card contents for each boundary (the card's titles, the name of the alarm sound it should play, and, if you picked a task, that task's name). The relay holds these, hands each update to Apple at its moment, and does nothing else with them.</p>
+      <p>The relay deletes this data when the session chain ends, and whenever you pause, reset or skip, because the app then withdraws or replaces the schedule. It receives no account, no usage data and no identifier beyond that rotating push token, which Apple scopes to the single card and retires with it. When notifications are allowed, session alarms remain local notifications scheduled on your device and do not depend on the relay. When they are not, the alarm sound arrives with the card update instead, so the relay is what carries it. The legal basis is performance of contract (Art. 6(1)(b) GDPR): running the timer you started.</p>
 
       <h2>Purchases (Pomini Pro)</h2>
       <p>Purchases are processed by Apple through the App Store under Apple's own terms and privacy policy. To unlock Pro across reinstalls, the app uses RevenueCat, a purchase-infrastructure provider, as our processor. RevenueCat receives the purchase receipt and a random app-generated identifier; it does not receive your name, email address or any content from the app. RevenueCat's privacy policy is at <a href="https://www.revenuecat.com/privacy" rel="noopener">revenuecat.com/privacy</a>. The legal basis is performance of the purchase contract (Art. 6(1)(b) GDPR).</p>
